@@ -23,7 +23,6 @@ import warnings
 # Suppress minor warnings to ensure a clean, professional console output
 warnings.simplefilter(action='ignore')
 
-# WHY: In professional environments, we need a chronological record of system 
 # performance to identify bottlenecks or failures without manual monitoring.
 logging.basicConfig(
     level=logging.INFO,
@@ -179,8 +178,7 @@ class RetailIntelligencePipeline:
         print("-" * 60 + "\n🏁 Cycle Complete. Data persistent in local database.")
 
 if __name__ == "__main__":
-    # PORTABLE PATH:
-    # Using a relative path ensures the project is 'Plug-and-Play' for GitHub.
+    
     DESTINATION = 'SSD_Market_Master.xlsx'
     
     pipeline = RetailIntelligencePipeline(target_excel=DESTINATION)
@@ -190,10 +188,10 @@ if __name__ == "__main__":
     try:
         while True:
             pipeline.run_stealth_scan()
-            # Hibernation: 10,800 seconds = 3 Hours
             print(f"\n⏳ Cycle finished at {datetime.now().strftime('%H:%M')}. Entering hibernation...")
             time.sleep(10800) 
     except KeyboardInterrupt:
         print("\n🛑 Manual Override: Pipeline successfully deactivated.")
               
+
 
