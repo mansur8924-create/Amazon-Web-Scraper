@@ -1,5 +1,6 @@
 # Amazon-Web-Scraper
  Project Overview
+
 This project addresses the challenge of real-time market monitoring. I developed a custom Python-based web scraper to automate the collection of product data (specifically SSDs) from Amazon. By extracting pricing trends, ratings, and product specifications, this tool provides the foundational data needed for competitive market analysis.
 
 Tools & Technologies
