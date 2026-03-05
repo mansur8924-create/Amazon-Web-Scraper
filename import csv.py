@@ -23,9 +23,6 @@ import warnings
 # Suppress minor warnings to ensure a clean, professional console output
 warnings.simplefilter(action='ignore')
 
-# ---------------------------------------------------------
-# 1. SETUP: Professional Logging (The System Audit Trail)
-# ---------------------------------------------------------
 # WHY: In professional environments, we need a chronological record of system 
 # performance to identify bottlenecks or failures without manual monitoring.
 logging.basicConfig(
@@ -34,9 +31,6 @@ logging.basicConfig(
     datefmt='%H:%M:%S'
 )
 
-# ---------------------------------------------------------
-# 2. THE ENGINE: RetailIntelligencePipeline
-# ---------------------------------------------------------
 class RetailIntelligencePipeline:
     def __init__(self, target_excel: str):
         """
@@ -115,7 +109,6 @@ class RetailIntelligencePipeline:
             wb = load_workbook(self.target_excel)
             ws = wb.active
             
-            # --- PROFESSIONAL UI STYLING ---
             # Dark Blue Header (Industry Standard for BI Reports)
             header_fill = PatternFill(start_color="002060", end_color="002060", fill_type="solid")
             header_font = Font(color="FFFFFF", bold=True)
@@ -160,7 +153,6 @@ class RetailIntelligencePipeline:
                 title_elem = soup.find("span", {"id": "productTitle"})
                 if not title_elem: continue 
                 
-                # --- DATA EXTRACTION & CLEANING ---
                 name = title_elem.get_text().strip()
                 price_tag = soup.find("span", {"class": "a-offscreen"})
                 live_p = price_tag.get_text().strip().replace('$', '').replace(',', '') if price_tag else "N/A"
@@ -186,9 +178,6 @@ class RetailIntelligencePipeline:
         self._save_and_format_excel(gathered_intelligence)
         print("-" * 60 + "\n🏁 Cycle Complete. Data persistent in local database.")
 
-# ---------------------------------------------------------
-# 3. EXECUTION: The Automation Pulse
-# ---------------------------------------------------------
 if __name__ == "__main__":
     # PORTABLE PATH:
     # Using a relative path ensures the project is 'Plug-and-Play' for GitHub.
@@ -207,3 +196,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\n🛑 Manual Override: Pipeline successfully deactivated.")
               
+
